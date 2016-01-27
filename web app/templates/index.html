@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fraud Detection Dashboard</title>
+    <meta name="description" content="A admin dashboard theme that will get you started with Bootstrap 4." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body >
+    <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+    <button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+        ☰
+    </button>
+    <a class="navbar-brand" href="#">Fraud Detection</a>
+<!--     <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
+        <ul class="nav navbar-nav pull-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">Home</span></a>
+            </li>
+        </ul>
+    </div> -->
+</nav>
+<div class="container-fluid" id="main">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3 col-lg-2 sidebar-offcanvas" id="sidebar" role="navigation">
+            <br><br><br>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-item"><a class="nav-link" href="#">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="#analytics">Analytics</a></li
+            </ul>
+        </div>
+        <!--/col-->
+
+        <div class="col-md-9 col-lg-10 main">
+
+            <!--toggle sidebar button-->
+            <p class="hidden-md-up">
+                <button type="button" class="btn btn-primary-outline btn-sm" data-toggle="offcanvas"><i class="fa fa-chevron-left"></i> Menu</button>
+            </p>
+
+            <br><br><br>
+
+            <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong>Holy guacamole!</strong> It's free.. this is an example theme.
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="card card-inverse card-danger">
+                        <div class="card-block bg-danger">
+                            <div class="rotate">
+                            </div>
+                            <a href="#high">
+                                <h6 class="text-uppercase">High Risk</h6>
+                                <h1 class="display-1">{{ high_risk }}</h1>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-3 col-sm-6">
+                    <div class="card card-inverse card-warning">
+                        <div class="card-block bg-warning">
+                            <div class="rotate">
+                            </div>
+                            <a href="#med">
+                                <h6 class="text-uppercase">Medium Risk</h6>
+                                <h1 class="display-1">{{ high_risk }}</h1>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="card card-inverse card-success">
+                        <div class="card-block bg-success">
+                            <div class="rotate">
+                            </div>
+                            <a href="#low">
+                                <h6 class="text-uppercase">Low Risk</h6>
+                                <h1 class="display-1">{{ low_risk }}</h1>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--/row-->
+
+
+            <hr id="features">
+            <br><br>
+
+            <div class=page>
+                <h1>Reports</h1>
+                <br>
+                {% for table in tables %}
+                <hr id={{links[loop.index]}} /><br><br>
+                    <h2>{{titles[loop.index]}}</h2>
+                    {{ table|safe }}
+                {% endfor %}
+            </div>
+
+            <h2 id="analytics">***Fancy Plot***<h2>
+
+            </div>
+        <!--/main col-->
+    </div>
+
+</div>
+<!--/.container-->
+<footer class="container-fluid">
+    <p class="text-right small">©2015 Data Scientist</p>
+</footer>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Large Modal</h4>
+            </div>
+            <div class="modal-body">
+                This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content. Any content can be placed inside the modal and it can use the Bootstrap grid classes.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--scripts loaded here-->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
